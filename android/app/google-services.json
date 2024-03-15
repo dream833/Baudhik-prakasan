@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1092119895825",
+    "project_id": "booksellingapp-71a84",
+    "storage_bucket": "booksellingapp-71a84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092119895825:android:5493c567eb9c7d094fb6b0",
+        "android_client_info": {
+          "package_name": "com.bspvt.ssgc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092119895825-vmlapqrpvqdltha0spngf5qbbebkdbil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHdRuV_Y8e2Yt1Scspt9poBaYyPL71Lss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092119895825-vmlapqrpvqdltha0spngf5qbbebkdbil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
