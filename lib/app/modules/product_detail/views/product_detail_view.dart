@@ -33,6 +33,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
     final route = MaterialPageRoute(
       builder: (context) => const CheckoutView(),
     );
+    await Navigator.push(context, route);
   }
 
   @override

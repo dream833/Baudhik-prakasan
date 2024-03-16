@@ -18,23 +18,20 @@ Object? result;
 
 getChecksum() {
   final requestData = {
-    {
-      "merchantId": merchantId,
-      "merchantTransactionId": "transaction_123",
-      "merchantUserId": "90223250",
-      "amount": 1000,
-      "mobileNumber": "9999999999",
-      "callbackUrl": callbackUrl,
-      "paymentInstrument": {
-        "type": "UPI_INTENT",
-      },
-    }
+    "merchantId": merchantId,
+    "merchantTransactionId": "transaction_123",
+    "merchantUserId": "MUID123",
+    "amount": 1000,
+    "mobileNumber": "9999999999",
+    "callbackUrl": callbackUrl,
+    "paymentInstrument": {
+      "type": "PAY_PAGE",
+    },
   };
-  String base64Body =
-      base64.encode(utf8.encode(json.encode(requestData.toString())));
+  String base64Body = base64.encode(utf8.encode(json.encode(requestData)));
   checksum =
       '${sha256.convert(utf8.encode(base64Body + apiEndPoint + saltKey)).toString()}###$saltIndex';
-
+  print("checksum $checksum");
   debugPrint(result.toString());
   return base64Body;
 }

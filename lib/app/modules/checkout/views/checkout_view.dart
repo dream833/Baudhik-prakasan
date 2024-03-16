@@ -34,7 +34,7 @@ class _CheckoutViewState extends State<CheckoutView> {
   void initState() {
     super.initState();
     phonePeInit();
-    body = getChecksum();
+    body = getChecksum().toString();
   }
 
   @override

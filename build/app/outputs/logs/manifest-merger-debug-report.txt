@@ -144,9 +144,9 @@ MERGED from [com.google.firebase:firebase-components:17.1.5] C:\Users\ihs27\.gra
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\ihs27\.gradle\caches\transforms-3\c3d1a040da39b00577728d316d17148e\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.chuckerteam.chucker:library-no-op:3.5.2] C:\Users\ihs27\.gradle\caches\transforms-3\09467d5eec5b1df7a4433a369f553961\transformed\jetified-library-no-op-3.5.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\ihs27\.gradle\caches\transforms-3\3c4bea41a39e2ef91e4e90c0edbcdf3e\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:1:1-10:12
 	package
 		INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\main\AndroidManifest.xml:1:1-27:12
@@ -359,6 +359,24 @@ INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\de
 	android:minSdkVersion
 		INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml
+meta-data#com.phonepe.android.sdk.isUAT
+ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:7:5-83
+	android:value
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:7:61-81
+	android:name
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:7:16-60
+meta-data#com.phonepe.android.sdk.isSimulator
+ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:8:5-89
+	android:value
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:8:67-87
+	android:name
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:8:16-66
+meta-data#com.phonepe.android.sdk.MerchantId
+ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:9:5-96
+	android:value
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:9:66-94
+	android:name
+		ADDED from C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\android\app\src\debug\AndroidManifest.xml:9:16-65
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:firebase_auth] C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:firebase_core] C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
