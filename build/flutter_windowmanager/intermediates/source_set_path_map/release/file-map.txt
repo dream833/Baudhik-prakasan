@@ -1,0 +1,12 @@
+io.adaptant.labs.flutter_windowmanager-core-1.6.0-0 C:\Users\ihs27\.gradle\caches\transforms-3\28cca1857cf66a5185dc7d7974ce08dd\transformed\core-1.6.0\res
+io.adaptant.labs.flutter_windowmanager-jetified-window-1.0.0-beta04-1 C:\Users\ihs27\.gradle\caches\transforms-3\532928dacb52a00697328bab2ba2e29b\transformed\jetified-window-1.0.0-beta04\res
+io.adaptant.labs.flutter_windowmanager-jetified-window-java-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\603fd6c73508c95ebf34625ce5cc7d8c\transformed\jetified-window-java-1.0.0-beta04\res
+io.adaptant.labs.flutter_windowmanager-jetified-annotation-experimental-1.1.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\cf015be8db5b4866b76344038519888a\transformed\jetified-annotation-experimental-1.1.0\res
+io.adaptant.labs.flutter_windowmanager-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_windowmanager-0.2.0\android\src\main\res
+io.adaptant.labs.flutter_windowmanager-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_windowmanager-0.2.0\android\src\release\res
+io.adaptant.labs.flutter_windowmanager-pngs-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\generated\res\pngs\release
+io.adaptant.labs.flutter_windowmanager-resValues-7 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\generated\res\resValues\release
+io.adaptant.labs.flutter_windowmanager-rs-8 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\generated\res\rs\release
+io.adaptant.labs.flutter_windowmanager-mergeReleaseResources-9 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.adaptant.labs.flutter_windowmanager-mergeReleaseResources-10 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.adaptant.labs.flutter_windowmanager-merged_res-11 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\flutter_windowmanager\intermediates\merged_res\release

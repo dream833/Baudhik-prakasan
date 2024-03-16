@@ -1,0 +1,12 @@
+io.flutter.plugins.pathprovider.path_provider_android-core-1.6.0-0 C:\Users\ihs27\.gradle\caches\transforms-3\28cca1857cf66a5185dc7d7974ce08dd\transformed\core-1.6.0\res
+io.flutter.plugins.pathprovider.path_provider_android-jetified-window-1.0.0-beta04-1 C:\Users\ihs27\.gradle\caches\transforms-3\532928dacb52a00697328bab2ba2e29b\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.pathprovider.path_provider_android-jetified-window-java-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\603fd6c73508c95ebf34625ce5cc7d8c\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.pathprovider.path_provider_android-jetified-annotation-experimental-1.1.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\cf015be8db5b4866b76344038519888a\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.pathprovider.path_provider_android-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.2\android\src\main\res
+io.flutter.plugins.pathprovider.path_provider_android-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.2\android\src\release\res
+io.flutter.plugins.pathprovider.path_provider_android-pngs-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\generated\res\pngs\release
+io.flutter.plugins.pathprovider.path_provider_android-resValues-7 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\generated\res\resValues\release
+io.flutter.plugins.pathprovider.path_provider_android-rs-8 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\generated\res\rs\release
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-9 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-10 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.pathprovider.path_provider_android-merged_res-11 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\path_provider_android\intermediates\merged_res\release

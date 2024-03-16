@@ -71,7 +71,7 @@ class MyOrdersController extends GetxController {
     final response = await ApiBaseClient().makeOrder(data);
     // Map<String, dynamic> responseData = json.decode(response.body);
     if (response.statusCode == 200) {
-      navigateToCheckoutPage();
+      // navigateToCheckoutPage();
       CustomMessage.successToast("Order Successful");
       isCreateOrderLoading.value = false;
       update();
@@ -104,7 +104,7 @@ class MyOrdersController extends GetxController {
             update();
             Get.back();
           } else if (response.statusCode == 401) {
-            CustomMessage.successToast("Can't Deleted Order");
+            CustomMessage.successToast("Can't Delete Order");
             print('${responseData['message']}');
             Get.back();
           } else {

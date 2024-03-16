@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:ssgc/app/modules/bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
+import 'package:ssgc/app/modules/home/views/home_view.dart';
 import 'package:ssgc/app/widgets/custom_text_span.dart';
 
 import '../../../data/app_image.dart';
@@ -12,7 +14,7 @@ import '../controllers/my_orders_controller.dart';
 import 'package:intl/intl.dart';
 
 class MyOrdersView extends GetView<MyOrdersController> {
-  const MyOrdersView({Key? key}) : super(key: key);
+  const MyOrdersView({super.key});
   @override
   Widget build(BuildContext context) {
     final orderController = Get.put(MyOrdersController());
@@ -49,14 +51,15 @@ class MyOrdersView extends GetView<MyOrdersController> {
             ],
           ),
         ),
-        body: Obx(()=>
-          Container(
+        body: Obx(
+          () => Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TabBarView(
               children: [
-
                 orderController.isLoading.value
-                    ? Center(child: CircularProgressIndicator(),)
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
                     : orderController.orderItems.isEmpty
                         ? EmptyView(
                             image: AssetImage(AppImage.wishlist),
@@ -64,128 +67,169 @@ class MyOrdersView extends GetView<MyOrdersController> {
                             subText: "Explore More And Shortlist Some Items",
                           )
                         : SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              ListView.builder(
+                            child: Column(
+                              children: [
+                                ListView.builder(
                                   shrinkWrap: true,
                                   primary: false,
                                   itemCount: orderController.orderItems.length,
-                                  itemBuilder: (context, index){
+                                  itemBuilder: (context, index) {
                                     final order = controller.orderItems[index];
                                     final date = order.createdAt;
-                                    String formattedDate = DateFormat.yMd().format(date);
+                                    String formattedDate =
+                                        DateFormat.yMd().format(date);
                                     // 12 hour format
-                                    String formattedTime = DateFormat('h:mm a').format(date);// Date format
+                                    String formattedTime = DateFormat('h:mm a')
+                                        .format(date); // Date format
                                     // 24 hour format
                                     // String formattedTime = DateFormat.Hm().format(date);
                                     return Column(
                                       children: [
                                         Container(
-                                          padding: EdgeInsets.all(8),
+                                          padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween ,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "Order ID: "+order.id.toString(),
-                                                    style: TextStyle(
+                                                    "Order ID: ${order.id}",
+                                                    style: const TextStyle(
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.w400,
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                     ),
                                                   ),
                                                   Text(
                                                     order.status.toString(),
                                                     style: TextStyle(
-                                                      color: order.status == "delivered" ? Colors.blue : Colors.black,
+                                                      color: order.status ==
+                                                              "delivered"
+                                                          ? Colors.blue
+                                                          : Colors.black,
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                              SizedBox(height: 10,),
-                                              Text("${formattedDate.toString()} at ${formattedTime.toString()}",),
-                                              SizedBox(height: 10,),
-                                              Row(
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                "${formattedDate.toString()} at ${formattedTime.toString()}",
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              const Row(
                                                 children: [
                                                   Image(
                                                     height: 55,
                                                     width: 70,
                                                     fit: BoxFit.cover,
                                                     image: AssetImage(
-                                                        "assets/images/book1.png"
-                                                    ),
+                                                        "assets/images/book1.png"),
                                                   ),
-                                                  SizedBox(width: 10,),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
                                                   Text("Product name"),
                                                 ],
                                               ),
-                                              SizedBox(height: 10,),
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  CustomTextSpan(title: "TOTAL AMOUNT: ", text: order.totalPrice.toString(),),
-                                                  CustomTextSpan(title: "PAYMENT: ", text: order.paymentMethod.toString(),),
-                                                ],
+                                              const SizedBox(
+                                                height: 10,
                                               ),
-                                              SizedBox(height: 10,),
-                                              if(order.status == "pending" || order.status == "canceled")
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
-                                                  IconAndText(icon: Icons.directions_bike_outlined, text: 'Track Order',),
-                                                  GestureDetector(
-                                                    onTap: (){
-                                                      orderController.deleteOrder(order.id, index);
-                                                    },
-                                                    child: IconAndText(
-                                                      icon: Icons.cancel_outlined,
-                                                      text: 'Cancel Order',
-                                                      textColor: Colors.red,
-                                                      iconColor: Colors.red,
-                                                    ),
+                                                  CustomTextSpan(
+                                                    title: "TOTAL AMOUNT: ",
+                                                    text: order.totalPrice
+                                                        .toString(),
+                                                  ),
+                                                  CustomTextSpan(
+                                                    title: "PAYMENT: ",
+                                                    text: order.paymentMethod
+                                                        .toString(),
                                                   ),
                                                 ],
                                               ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              if (order.status == "pending" ||
+                                                  order.status == "canceled")
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    const IconAndText(
+                                                      icon: Icons
+                                                          .directions_bike_outlined,
+                                                      text: 'Track Order',
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        orderController
+                                                            .deleteOrder(
+                                                                order.id,
+                                                                index);
+                                                      },
+                                                      child: const IconAndText(
+                                                        icon: Icons
+                                                            .cancel_outlined,
+                                                        text: 'Cancel Order',
+                                                        textColor: Colors.red,
+                                                        iconColor: Colors.red,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                             ],
                                           ),
                                         ),
-                                        Divider(),
+                                        const Divider(),
                                       ],
                                     );
                                   },
-
                                 ),
-                              
-                              // DataTable(
-                              //   columns: [
-                              //     DataColumn(
-                              //       label: Text("Id",),
-                              //     ),
-                              //     DataColumn(
-                              //     label: Text("Id",),
-                              //     ),
-                              //     DataColumn(
-                              //     label: Text("Id",),
-                              //     ),
-                              //   ],
-                              //   rows: orderController.orderItems.map((order) {
-                              //     return DataRow(
-                              //       cells: [
-                              //         DataCell(Text(order['id'].toString())),
-                              //         DataCell(Text(order['status'])),
-                              //       ],
-                              //     );
-                              //   }).toList(),
-                              // ),
-                            ],
-                          ),
-                        ),
 
+                                // DataTable(
+                                //   columns: [
+                                //     DataColumn(
+                                //       label: Text("Id",),
+                                //     ),
+                                //     DataColumn(
+                                //     label: Text("Id",),
+                                //     ),
+                                //     DataColumn(
+                                //     label: Text("Id",),
+                                //     ),
+                                //   ],
+                                //   rows: orderController.orderItems.map((order) {
+                                //     return DataRow(
+                                //       cells: [
+                                //         DataCell(Text(order['id'].toString())),
+                                //         DataCell(Text(order['status'])),
+                                //       ],
+                                //     );
+                                //   }).toList(),
+                                // ),
+                              ],
+                            ),
+                          ),
                 EmptyView(
                     image: AssetImage(AppImage.wishlist),
                     mainText: " Your Wishlist is Empty",
@@ -199,13 +243,18 @@ class MyOrdersView extends GetView<MyOrdersController> {
   }
 }
 
-
 class IconAndText extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color? iconColor;
   final Color? textColor;
-  const IconAndText({super.key, required this.icon, required this.text, this.iconColor = Colors.black, this.textColor = Colors.black,});
+  const IconAndText({
+    super.key,
+    required this.icon,
+    required this.text,
+    this.iconColor = Colors.black,
+    this.textColor = Colors.black,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +264,9 @@ class IconAndText extends StatelessWidget {
           icon,
           color: iconColor,
         ),
-        SizedBox(width: 5,),
+        const SizedBox(
+          width: 5,
+        ),
         Text(
           text,
           style: TextStyle(
@@ -226,4 +277,3 @@ class IconAndText extends StatelessWidget {
     );
   }
 }
-

@@ -19,6 +19,7 @@ import 'package:ssgc/app/widgets/rounded_button.dart';
 import '../../../widgets/image_loader.dart';
 import '../../../widgets/rating.dart';
 import '../../../widgets/text.dart';
+import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import '../../cart/views/cart_view.dart';
 import '../../my_orders/controllers/my_orders_controller.dart';
 
@@ -468,6 +469,8 @@ class _CheckoutViewState extends State<CheckoutView> {
                     String error = val['error'].toString();
                     if (status == "SUCCESS") {
                       result = "Flow Success - Status: SUCESSS";
+
+                      Get.offAll(() => BottomNavigationBarView());
                     } else {
                       result = "Flow Success - Status: $status and $error";
                     }

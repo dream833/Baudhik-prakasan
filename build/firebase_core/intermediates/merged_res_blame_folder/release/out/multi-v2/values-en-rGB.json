@@ -1,0 +1,82 @@
+{
+    "logs": [
+        {
+            "outputFile": "io.flutter.plugins.firebase.core.firebase_core-mergeReleaseResources-10:/values-en-rGB/values-en-rGB.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\0f96d57399a3f69298a9496d701d7553\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-en-rGB\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "199",
+                        "endColumns": "133",
+                        "endOffsets": "332"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "137",
+                        "endOffsets": "188"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\28cca1857cf66a5185dc7d7974ce08dd\\transformed\\core-1.6.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "193",
+                        "endColumns": "100",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "io.flutter.plugins.firebase.core.firebase_core-merged_res-12:/values-en-rGB/values-en-rGB.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\0f96d57399a3f69298a9496d701d7553\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-en-rGB\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "199",
+                        "endColumns": "133",
+                        "endOffsets": "332"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "137",
+                        "endOffsets": "188"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\28cca1857cf66a5185dc7d7974ce08dd\\transformed\\core-1.6.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "193",
+                        "endColumns": "100",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}

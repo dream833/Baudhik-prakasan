@@ -1,0 +1,12 @@
+dev.fluttercommunity.plus.device_info.device_info_plus-core-1.6.0-0 C:\Users\ihs27\.gradle\caches\transforms-3\28cca1857cf66a5185dc7d7974ce08dd\transformed\core-1.6.0\res
+dev.fluttercommunity.plus.device_info.device_info_plus-jetified-window-1.0.0-beta04-1 C:\Users\ihs27\.gradle\caches\transforms-3\532928dacb52a00697328bab2ba2e29b\transformed\jetified-window-1.0.0-beta04\res
+dev.fluttercommunity.plus.device_info.device_info_plus-jetified-window-java-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\603fd6c73508c95ebf34625ce5cc7d8c\transformed\jetified-window-java-1.0.0-beta04\res
+dev.fluttercommunity.plus.device_info.device_info_plus-jetified-annotation-experimental-1.1.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\cf015be8db5b4866b76344038519888a\transformed\jetified-annotation-experimental-1.1.0\res
+dev.fluttercommunity.plus.device_info.device_info_plus-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\device_info_plus-9.1.2\android\src\main\res
+dev.fluttercommunity.plus.device_info.device_info_plus-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\device_info_plus-9.1.2\android\src\release\res
+dev.fluttercommunity.plus.device_info.device_info_plus-pngs-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\generated\res\pngs\release
+dev.fluttercommunity.plus.device_info.device_info_plus-resValues-7 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\generated\res\resValues\release
+dev.fluttercommunity.plus.device_info.device_info_plus-rs-8 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\generated\res\rs\release
+dev.fluttercommunity.plus.device_info.device_info_plus-mergeReleaseResources-9 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\intermediates\incremental\release\mergeReleaseResources\merged.dir
+dev.fluttercommunity.plus.device_info.device_info_plus-mergeReleaseResources-10 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+dev.fluttercommunity.plus.device_info.device_info_plus-merged_res-11 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\intermediates\merged_res\release

@@ -97,7 +97,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.shopping_cart_outlined,
                       color: Colors.black,
                       size: 30,
@@ -106,7 +106,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                       top: -10,
                       left: 15,
                       child: Container(
-                        padding: EdgeInsets.all(
+                        padding: const EdgeInsets.all(
                           6,
                         ),
                         decoration: BoxDecoration(
@@ -143,7 +143,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
         child: SingleChildScrollView(
           child: Obx(
             () => controller.isLoading.value
-                ? CourseDetailsShimmer()
+                ? const CourseDetailsShimmer()
                 : Column(
                     children: <Widget>[
                       if (controller.productDetails.value.images!.isNotEmpty ||
@@ -180,7 +180,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
                                   // Handle loading state if necessary
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 } else if (snapshot.hasError) {
                                   // Handle errors if necessary
                                   return Text(
@@ -332,7 +332,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 ),
                               ),
                             ),
-                            Divider(
+                            const Divider(
                               thickness: 2,
                             ),
                             SizedBox(
@@ -473,7 +473,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
 
                       Obx(
                         () => controller.productDetails.value.reviews!.isEmpty
-                            ? Text("No comments found")
+                            ? const Text("No comments found")
                             : ListView.builder(
                                 itemCount: controller
                                     .productDetails.value.reviews!.length,
@@ -539,7 +539,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
       ),
       bottomNavigationBar: Obx(
         () => controller.isLoading.value
-            ? BottomNavigationBarShimmer()
+            ? const BottomNavigationBarShimmer()
             : Container(
                 padding: const EdgeInsets.only(
                   left: 10,

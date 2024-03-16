@@ -1,0 +1,13 @@
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-core-1.6.0-0 C:\Users\ihs27\.gradle\caches\transforms-3\28cca1857cf66a5185dc7d7974ce08dd\transformed\core-1.6.0\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-jetified-window-1.0.0-beta04-1 C:\Users\ihs27\.gradle\caches\transforms-3\532928dacb52a00697328bab2ba2e29b\transformed\jetified-window-1.0.0-beta04\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-jetified-window-java-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\603fd6c73508c95ebf34625ce5cc7d8c\transformed\jetified-window-java-1.0.0-beta04\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-jetified-annotation-experimental-1.1.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\cf015be8db5b4866b76344038519888a\transformed\jetified-annotation-experimental-1.1.0\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_flutter_pdfviewer-23.2.7\android\src\main\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_flutter_pdfviewer-23.2.7\android\src\release\res
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-packaged_res-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\device_info_plus\intermediates\packaged_res\release
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-pngs-7 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\generated\res\pngs\release
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-resValues-8 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\generated\res\resValues\release
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-rs-9 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\generated\res\rs\release
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-mergeReleaseResources-10 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-mergeReleaseResources-11 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.syncfusion.flutter.pdfviewer.syncfusion_flutter_pdfviewer-merged_res-12 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\syncfusion_flutter_pdfviewer\intermediates\merged_res\release
