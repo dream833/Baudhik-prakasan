@@ -4,6 +4,7 @@ import 'package:ssgc/app/modules/address/bindings/address_binding.dart';
 import 'package:ssgc/app/modules/address/views/update_address_view.dart';
 import 'package:ssgc/app/modules/all_news/bindings/all_news_bindings.dart';
 import 'package:ssgc/app/modules/all_news/views/all_news_view.dart';
+import 'package:ssgc/app/modules/buy_now/views/buy_now_view.dart';
 import 'package:ssgc/app/modules/checkout/views/checkout_view.dart';
 import 'package:ssgc/app/modules/courses/bindings/courses_bindings.dart';
 import 'package:ssgc/app/modules/courses/views/courses_view.dart';
@@ -128,6 +129,7 @@ class AppPages {
       page: () => AddAddressView(),
       binding: AddressBinding(),
     ),
+    //GetPage(name: _Paths.BUYNOW, page: ()=> const BuyNowView(), binding: BuyNowBinding()),
 
     // GetPage(
     //   name: _Paths.UPDATE_ADDRESS,
@@ -226,18 +228,18 @@ class AppPages {
 
     GetPage(
       name: _Paths.ABOUT_US,
-      page: ()=> AboutUs(),
+      page: () => AboutUs(),
     ),
 
     GetPage(
       name: _Paths.PET,
-      page: ()=> CoursesView(),
+      page: () => CoursesView(),
       binding: CoursesBinding(),
     ),
 
     GetPage(
       name: _Paths.VIDEO,
-      page: ()=> VideoView(),
+      page: () => VideoView(),
     ),
   ];
 }

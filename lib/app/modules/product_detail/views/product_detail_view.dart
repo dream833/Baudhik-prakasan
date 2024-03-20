@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ssgc/app/modules/address/controllers/address_controller.dart';
+import 'package:ssgc/app/modules/buy_now/views/buy_now_view.dart';
 import 'package:ssgc/app/modules/product_detail/views/pdf_view.dart';
 import 'package:ssgc/app/modules/wishlist/controllers/wishlist_controller.dart';
 import 'package:ssgc/app/widgets/Shimmer/bottom_navigation_bar_shimmer.dart';
@@ -30,10 +31,16 @@ class ProductDetailView extends GetView<ProductDetailController> {
   const ProductDetailView({Key? key, required this.id, this.type})
       : super(key: key);
   Future<void> navigateToPaymentPage(BuildContext context) async {
-    final route = MaterialPageRoute(
-      builder: (context) => const CheckoutView(),
-    );
-    await Navigator.push(context, route);
+    // final route = MaterialPageRoute(
+    //   builder: (context) => const BuyNowView(),
+    // );
+    // await Navigator.push(context, route);
+    Get.to(() => const BuyNowView(), arguments: {
+      'image': controller.productDetails.value.images![0] ??
+          'assets/images/empty_cart.png',
+      'name': controller.productDetails.value.name,
+      'price': controller.productDetails.value.price.toString(),
+    });
   }
 
   @override
@@ -166,12 +173,15 @@ class ProductDetailView extends GetView<ProductDetailController> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              controller.productDetails.value.name ??
-                                  'No name found',
-                              style: TextStyle(
-                                fontSize: 20.h,
-                                fontWeight: FontWeight.bold,
+                            Flexible(
+                              child: Text(
+                                controller.productDetails.value.name ??
+                                    'No name found',
+                                style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 20.h,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             FutureBuilder(
