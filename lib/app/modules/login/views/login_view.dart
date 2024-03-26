@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ssgc/app/modules/login/otp/otp_view_page.dart';
 import 'package:ssgc/app/modules/registration/views/registration_view.dart';
 import 'package:ssgc/app/widgets/custom_text_span.dart';
 import 'package:ssgc/app/widgets/rounded_button.dart';
 import 'package:ssgc/app/widgets/text.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../data/app_image.dart';
 import '../../../widgets/app_color.dart';
 import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
@@ -17,12 +18,11 @@ class LoginView extends GetView<LoginController> {
   LoginView({Key? key}) : super(key: key);
   String? selectedValue;
 
+  final loginController = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-
-    final loginController = Get.put(LoginController());
     return Scaffold(
         backgroundColor: AppColor.white50,
         appBar: AppBar(
@@ -31,13 +31,12 @@ class LoginView extends GetView<LoginController> {
           backgroundColor: AppColor.white50,
           title: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-            child:
-                Center(
-                  child: BigText(
-                    text: "Baudhik Prakashan Pariksha Vani",
-                    size: 16.h,
-                  ),
-                ),
+            child: Center(
+              child: BigText(
+                text: "Baudhik Prakashan Pariksha Vani",
+                size: 16.h,
+              ),
+            ),
           ),
         ),
         body: SafeArea(
@@ -62,8 +61,8 @@ class LoginView extends GetView<LoginController> {
                   height: 25.h,
                 ),
 
-                Obx(()=>
-                  Visibility(
+                Obx(
+                  () => Visibility(
                     visible: loginController.isOtpLogin.value,
                     child: Form(
                       key: _formKey2,
@@ -99,8 +98,8 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                Obx(()=>
-                  Visibility(
+                Obx(
+                  () => Visibility(
                     visible: !loginController.isOtpLogin.value,
                     child: Form(
                       key: _formKey,
@@ -115,39 +114,45 @@ class LoginView extends GetView<LoginController> {
                                 controller: loginController.phoneController,
                                 keyboardType: TextInputType.phone,
                                 decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.all(16),
-                                    hintText: 'Phone ',
-                                    hintStyle: const TextStyle(fontSize: 13),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
+                                  contentPadding: const EdgeInsets.all(16),
+                                  hintText: 'Phone ',
+                                  hintStyle: const TextStyle(fontSize: 13),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFF00C9A7),
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFF00C9A7),
-                                        ),
-                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-
-                            SizedBox(height: 10,),
-
-                            Obx(()=>
-                              SizedBox(
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Obx(
+                              () => SizedBox(
                                 width: Get.width / 1.1,
                                 child: TextFormField(
-                                  controller: loginController.passwordController,
-                                  obscureText: controller.isPasswordVisible.value,
+                                  controller:
+                                      loginController.passwordController,
+                                  obscureText:
+                                      controller.isPasswordVisible.value,
                                   decoration: InputDecoration(
                                     contentPadding: const EdgeInsets.all(16),
                                     hintText: 'Password ',
                                     hintStyle: const TextStyle(fontSize: 13),
                                     suffixIcon: GestureDetector(
-                                      onTap: (){
-                                        controller.isPasswordVisible.value =! controller.isPasswordVisible.value;
+                                      onTap: () {
+                                        controller.isPasswordVisible.value =
+                                            !controller.isPasswordVisible.value;
                                       },
-                                      child: Icon(controller.isPasswordVisible.value ? Icons.visibility : Icons.visibility_off),
+                                      child: Icon(
+                                          controller.isPasswordVisible.value
+                                              ? Icons.visibility
+                                              : Icons.visibility_off),
                                     ),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
@@ -169,19 +174,21 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
 
-                Obx(()=>
-                  GestureDetector(
-                    onTap: (){
+                Obx(
+                  () => GestureDetector(
+                    onTap: () {
                       loginController.setIsOtpOrPassword();
                     },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 16),
                       child: Row(
                         children: [
-
                           Text(
-                            loginController.isOtpLogin.value == true ? "Login With Password" : "Login with otp",
-                            style: TextStyle(
+                            loginController.isOtpLogin.value == true
+                                ? "Login With Password"
+                                : "Login with otp",
+                            style: const TextStyle(
                               decoration: TextDecoration.underline,
                               color: Colors.red,
                             ),
@@ -195,28 +202,27 @@ class LoginView extends GetView<LoginController> {
                   height: 50,
                 ),
 
-                Obx(()=>
-                  Padding(
+                Obx(
+                  () => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: RoundedButton(
                       isLoading: loginController.isLoading.value,
                       text: "LOGIN",
                       height: 50,
-                      backgroundColor: Colors.grey.shade400,
-                      onPress: (){
-
-                        if(loginController.isOtpLogin.value){
+                      backgroundColor: Colors.amber.shade400,
+                      onPress: () {
+                        if (loginController.isOtpLogin.value) {
                           if (_formKey2.currentState!.validate()) {
                             _formKey2.currentState!.save();
-                            Get.snackbar("Warning", "Otp Login is not functional yet");
+                            print(loginController.otpPhoneController.text);
+                            sendOTP(context);
                             // loginController.loginUser();
                           }
                           // else {
                           //   print("Form not validate");
                           // }
                           print("Otp Login called");
-                        }
-                        else {
+                        } else {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
                             // Get.snackbar("Warning", "Password Login");
@@ -227,7 +233,6 @@ class LoginView extends GetView<LoginController> {
                           // }
                           print("Password Login called");
                         }
-
                       },
                     ),
                   ),
@@ -262,8 +267,10 @@ class LoginView extends GetView<LoginController> {
                   height: 25.h,
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Get.to(()=> RegistrationView(),);
+                  onTap: () {
+                    Get.to(
+                      () => const RegistrationView(),
+                    );
                   },
                   child: const CustomTextSpan(
                     title: "No account yet? ",
@@ -283,20 +290,18 @@ class LoginView extends GetView<LoginController> {
                 const SizedBox(
                   height: 25,
                 ),
-                GetBuilder<LoginController>(
-                  builder: (controller) {
-                    return GestureDetector(
-                      onTap: (){
-                        controller.googleLogin();
-                      },
-                      child: SignOptions(
-                        icon: Icons.phone_android,
-                        text: "Sign in with Google",
-                        image: AssetImage(AppImage.google),
-                      ),
-                    );
-                  }
-                ),
+                GetBuilder<LoginController>(builder: (controller) {
+                  return GestureDetector(
+                    onTap: () {
+                      controller.googleLogin();
+                    },
+                    child: SignOptions(
+                      icon: Icons.phone_android,
+                      text: "Sign in with Google",
+                      image: AssetImage(AppImage.google),
+                    ),
+                  );
+                }),
                 SignOptions(
                   icon: Icons.phone_android,
                   text: "Sign in with Facebook",
@@ -319,6 +324,40 @@ class LoginView extends GetView<LoginController> {
             ),
           ),
         ));
+  }
+
+  changeRoute(context) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      Get.to(
+        () => const OTPViewPage(),
+      );
+    });
+  }
+
+  void sendOTP(context) async {
+    final loginphoneController = loginController.otpPhoneController.text;
+    const apiKey = '365C5D8E1A6CF6';
+    final contacts = loginphoneController;
+    const senderId = 'SHURAJ';
+    const type = 'text';
+    final smsText = Uri.encodeComponent(
+        '{#var#} is your OTP for login bharat consultancy web portal. suraj shukla');
+    const peId = '1701164301680517262';
+    const templateId = '1707170738766952953';
+    const campaign = ' 7668';
+    const routeid = '100449';
+    final apiURL = Uri.parse(
+      'https://sms.alphaqtmtechnology.com/app/smsapi/index.php?key=$apiKey&campaign=$campaign&routeid=$routeid&type=$type&contacts=$contacts&senderid=$senderId&msg=$smsText&template_id=$templateId&pe_id=$peId',
+    );
+    final response = await http.get(apiURL);
+    if (response.statusCode == 200) {
+      changeRoute(context);
+      print('Response: ${response.body} $loginphoneController');
+    } else {
+      print(
+          'Login failed. Status code: ${response.statusCode} ${response.reasonPhrase}');
+      print(loginphoneController);
+    }
   }
 }
 

@@ -429,7 +429,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                                   'ccavenu') {
                             // CustomMessage.errorToast('Select payment method is ${checkoutController.selectedValue.value}');
                             startPGTransaction();
-                            orderController.createOrder();
+                            //orderController.createOrder();
                           } else {
                             CustomMessage.errorToast(
                                 'Please select payment method');
@@ -457,7 +457,7 @@ class _CheckoutViewState extends State<CheckoutView> {
     });
   }
 
-  void startPGTransaction() async {
+  startPGTransaction() async {
     try {
       var response =
           PhonePePaymentSdk.startTransaction(body, callbackUrl, checksum, "");
@@ -467,9 +467,10 @@ class _CheckoutViewState extends State<CheckoutView> {
                   if (val != null) {
                     String status = val['status'].toString();
                     String error = val['error'].toString();
+                    var orderController = MyOrdersController();
                     if (status == "SUCCESS") {
                       result = "Flow Success - Status: SUCESSS";
-
+                      orderController.createOrder("phonepe");
                       Get.offAll(() => BottomNavigationBarView());
                     } else {
                       result = "Flow Success - Status: $status and $error";
