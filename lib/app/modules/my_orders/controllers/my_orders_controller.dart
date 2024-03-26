@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ssgc/app/model/order.dart';
 import 'package:ssgc/app/modules/cart/controllers/cart_controller.dart';
+import 'package:ssgc/app/modules/checkout/views/checkout_view.dart';
 
 import '../../../api/base_client.dart';
 import '../../../widgets/custom_message.dart';
 import '../views/my_orders_view.dart';
 
 class MyOrdersController extends GetxController {
+  // String paymentMethod = "cash";
   //TODO: Implement MyOrdersController
 
   final count = 0.obs;
@@ -26,6 +28,10 @@ class MyOrdersController extends GetxController {
     super.onInit();
     getOrder();
   }
+
+  // void setPaymentMethod(String method) {
+  //   paymentMethod = method;
+  // }
 
   void increment() => count.value++;
 
@@ -57,17 +63,16 @@ class MyOrdersController extends GetxController {
     }
   }
 
-  createOrder() async {
+  createOrder(String? paymentMethod) async {
     isCreateOrderLoading.value = true;
+
     final Map<String, dynamic> data = {
-      "payment_method": "cash",
+      "payment_method": paymentMethod,
       "address_id": 13,
       "items": cartController
           .getCartItemsForRequest(), // Get cart items from the controller
     };
-
-    print(data);
-
+    debugPrint("payment: ${data["payment_method"]}");
     final response = await ApiBaseClient().makeOrder(data);
     // Map<String, dynamic> responseData = json.decode(response.body);
     if (response.statusCode == 200) {

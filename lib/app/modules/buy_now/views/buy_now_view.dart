@@ -413,7 +413,7 @@ class _BuyNowViewState extends State<BuyNowView> {
                     if (status == "SUCCESS") {
                       result = "Flow Success - Status: SUCESSS";
 
-                      orderController.createOrder();
+                      orderController.createOrder("phonepe");
                       Get.offAll(() => BottomNavigationBarView());
                     } else {
                       result = "Flow Success - Status: $status and $error";
