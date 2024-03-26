@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ssgc/app/modules/login/otp/otp_view_page.dart';
@@ -213,9 +214,15 @@ class LoginView extends GetView<LoginController> {
                       onPress: () {
                         if (loginController.isOtpLogin.value) {
                           if (_formKey2.currentState!.validate()) {
-                            _formKey2.currentState!.save();
-                            print(loginController.otpPhoneController.text);
-                            sendOTP(context);
+                            if (loginController
+                                .otpPhoneController.text.isNotEmpty) {
+                              _formKey2.currentState!.save();
+                              print(loginController.otpPhoneController.text);
+                              sendOTP(context);
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg: "Please Enter Phone Number");
+                            }
                             // loginController.loginUser();
                           }
                           // else {
