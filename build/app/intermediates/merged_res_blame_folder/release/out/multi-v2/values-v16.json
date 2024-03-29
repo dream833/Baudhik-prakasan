@@ -4,17 +4,26 @@
             "outputFile": "com.bspvt.ssgc.app-mergeReleaseResources-37:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\802785a4967db8ac5184601adfdc162b\\transformed\\core-1.10.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\14cb92fd0e1962bf3dd03fd842f7da18\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
                     }
                 },
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\26257e23830fe64582fe3cc96d62dc0d\\transformed\\jetified-IntentSDK-2.4.2\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\728fcb66d716c0a14f7b2d84ba63f1b6\\transformed\\jetified-IntentSDK-2.4.2\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -33,22 +42,13 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\c2ca7e7a81eba4a2a8e3aed7f90a9a46\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\d4adcbcb69eece0a83677cc0e0d5d50a\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

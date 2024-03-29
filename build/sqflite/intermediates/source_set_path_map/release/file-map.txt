@@ -1,7 +1,7 @@
-com.tekartik.sqflite-core-1.6.0-0 C:\Users\ihs27\.gradle\caches\transforms-3\28cca1857cf66a5185dc7d7974ce08dd\transformed\core-1.6.0\res
-com.tekartik.sqflite-jetified-window-1.0.0-beta04-1 C:\Users\ihs27\.gradle\caches\transforms-3\532928dacb52a00697328bab2ba2e29b\transformed\jetified-window-1.0.0-beta04\res
-com.tekartik.sqflite-jetified-window-java-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\603fd6c73508c95ebf34625ce5cc7d8c\transformed\jetified-window-java-1.0.0-beta04\res
-com.tekartik.sqflite-jetified-annotation-experimental-1.1.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\cf015be8db5b4866b76344038519888a\transformed\jetified-annotation-experimental-1.1.0\res
+com.tekartik.sqflite-jetified-window-java-1.0.0-beta04-0 C:\Users\ihs27\.gradle\caches\transforms-3\339d6138bc80026b316b3ac869fe7b8f\transformed\jetified-window-java-1.0.0-beta04\res
+com.tekartik.sqflite-jetified-annotation-experimental-1.1.0-1 C:\Users\ihs27\.gradle\caches\transforms-3\3ab8c4ebb1d8d6658212a02ee516d87d\transformed\jetified-annotation-experimental-1.1.0\res
+com.tekartik.sqflite-jetified-window-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\7ba5aed66bba9159ba517d35e5d5e5c7\transformed\jetified-window-1.0.0-beta04\res
+com.tekartik.sqflite-core-1.6.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\b1336aab98b43ecc8cd9f54a123beda2\transformed\core-1.6.0\res
 com.tekartik.sqflite-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\sqflite-2.3.2\android\src\main\res
 com.tekartik.sqflite-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\sqflite-2.3.2\android\src\release\res
 com.tekartik.sqflite-pngs-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\sqflite\generated\res\pngs\release

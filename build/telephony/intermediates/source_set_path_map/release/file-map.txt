@@ -1,0 +1,12 @@
+com.shounakmulay.telephony-jetified-window-java-1.0.0-beta04-0 C:\Users\ihs27\.gradle\caches\transforms-3\339d6138bc80026b316b3ac869fe7b8f\transformed\jetified-window-java-1.0.0-beta04\res
+com.shounakmulay.telephony-jetified-annotation-experimental-1.1.0-1 C:\Users\ihs27\.gradle\caches\transforms-3\3ab8c4ebb1d8d6658212a02ee516d87d\transformed\jetified-annotation-experimental-1.1.0\res
+com.shounakmulay.telephony-jetified-window-1.0.0-beta04-2 C:\Users\ihs27\.gradle\caches\transforms-3\7ba5aed66bba9159ba517d35e5d5e5c7\transformed\jetified-window-1.0.0-beta04\res
+com.shounakmulay.telephony-core-1.6.0-3 C:\Users\ihs27\.gradle\caches\transforms-3\b1336aab98b43ecc8cd9f54a123beda2\transformed\core-1.6.0\res
+com.shounakmulay.telephony-main-4 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\telephony-0.2.0\android\src\main\res
+com.shounakmulay.telephony-release-5 C:\Users\ihs27\AppData\Local\Pub\Cache\hosted\pub.dev\telephony-0.2.0\android\src\release\res
+com.shounakmulay.telephony-pngs-6 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\generated\res\pngs\release
+com.shounakmulay.telephony-resValues-7 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\generated\res\resValues\release
+com.shounakmulay.telephony-rs-8 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\generated\res\rs\release
+com.shounakmulay.telephony-mergeReleaseResources-9 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.shounakmulay.telephony-mergeReleaseResources-10 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.shounakmulay.telephony-merged_res-11 C:\Users\ihs27\OneDrive\Desktop\boudhik\boudhik\build\telephony\intermediates\merged_res\release

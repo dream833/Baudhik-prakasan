@@ -4,7 +4,7 @@
             "outputFile": "com.crazecoder.openfile.open_file-mergeReleaseResources-22:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\94b73d00b55761bf29d174ed8ddadd2f\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\05725303d26029bd639b149c847cea7d\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\c2ca7e7a81eba4a2a8e3aed7f90a9a46\\transformed\\appcompat-1.6.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\14cb92fd0e1962bf3dd03fd842f7da18\\transformed\\appcompat-1.6.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -36,7 +36,7 @@
             "outputFile": "com.crazecoder.openfile.open_file-merged_res-24:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\94b73d00b55761bf29d174ed8ddadd2f\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\05725303d26029bd639b149c847cea7d\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\c2ca7e7a81eba4a2a8e3aed7f90a9a46\\transformed\\appcompat-1.6.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\ihs27\\.gradle\\caches\\transforms-3\\14cb92fd0e1962bf3dd03fd842f7da18\\transformed\\appcompat-1.6.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

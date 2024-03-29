@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio_form_data;
 import 'package:flutter/material.dart';
@@ -160,10 +162,8 @@ class _OTPViewPageState extends State<OTPViewPage> {
                   otp = pin;
                   debugPrint('onCompleted: $pin ');
                   try {
+                    verify();
                     loginController.loginUser();
-                    changeRoute();
-
-                    debugPrint('verification successful');
                   } catch (ex) {
                     debugPrint(ex.toString());
                   }
@@ -181,9 +181,8 @@ class _OTPViewPageState extends State<OTPViewPage> {
 
                   debugPrint('onCompleted: $pin ');
                   try {
+                    verify();
                     loginController.loginUser();
-                    changeRoute();
-
                     debugPrint('verification successful');
                   } catch (ex) {
                     debugPrint(ex.toString());
@@ -222,12 +221,13 @@ class _OTPViewPageState extends State<OTPViewPage> {
   }
 
   Future<void> verify() async {
+    final data = json.encode({
+      "phone": widget.phone,
+      "otp": otp,
+    });
     final response = await Dio().post(
       "https://api.bhattacharjeesolution.in/book/api/user-login.php",
-      data: dio_form_data.FormData.fromMap({
-        "phone": widget.phone,
-        "code": otp,
-      }),
+      data: data,
       options: Options(
           headers: {
             "Accept": "application/json",
