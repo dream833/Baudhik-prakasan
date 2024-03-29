@@ -110,6 +110,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///C:/Users/ihs27/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.2+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "dropdown_button2",
       "rootUri": "file:///C:/Users/ihs27/AppData/Local/Pub/Cache/hosted/pub.dev/dropdown_button2-2.3.9",
       "packageUri": "lib/",
@@ -890,7 +896,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-03-26T19:21:47.907868Z",
+  "generated": "2024-03-28T19:22:10.905925Z",
   "generator": "pub",
   "generatorVersion": "3.3.1"
 }

@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio_form_data;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,8 @@ import 'package:timer_count_down/timer_count_down.dart';
 import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 
 class OTPViewPage extends StatefulWidget {
-  const OTPViewPage({super.key});
+  final phone;
+  const OTPViewPage({super.key, required this.phone});
 
   @override
   State<OTPViewPage> createState() => _OTPViewPageState();
@@ -218,5 +221,31 @@ class _OTPViewPageState extends State<OTPViewPage> {
     );
   }
 
-  void verify() {}
+  Future<void> verify() async {
+    final response = await Dio().post(
+      "https://api.bhattacharjeesolution.in/book/api/user-login.php",
+      data: dio_form_data.FormData.fromMap({
+        "phone": widget.phone,
+        "code": otp,
+      }),
+      options: Options(
+          headers: {
+            "Accept": "application/json",
+          },
+          followRedirects: false,
+          validateStatus: (status) {
+            return status! < 500;
+          }),
+    );
+    if (response.statusCode == 200) {
+      debugPrint("verify successfull");
+      print(otp);
+      changeRoute();
+    } else {
+      Fluttertoast.showToast(
+        msg: 'Login failed. Status code: ${response.statusCode}',
+      );
+      print(response.statusCode! + response.data);
+    }
+  }
 }

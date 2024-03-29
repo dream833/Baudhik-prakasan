@@ -56,7 +56,6 @@ class CourseDetailsView extends StatelessWidget {
         builder: (context) => const CartView2(),
       );
       await Navigator.push(context, route);
-      // await cartController.getCart();
     }
 
     return Scaffold(
@@ -126,7 +125,7 @@ class CourseDetailsView extends StatelessWidget {
             padding: EdgeInsets.all(10.h),
             child: Obx(
               () => controller.isCourseDetailsLoading.value
-                  ? CourseDetailsShimmer()
+                  ? const CourseDetailsShimmer()
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,7 +186,7 @@ class CourseDetailsView extends StatelessWidget {
                         // Name
                         Text(
                           controller.courseDetails.value?.name.toString() ?? '',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         //   Price mrp
@@ -235,7 +234,7 @@ class CourseDetailsView extends StatelessWidget {
                                                         0
                                                     ? Colors.red
                                                     : Colors.teal,
-                                            offset: Offset(0, -5))
+                                            offset: const Offset(0, -5))
                                       ],
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -267,7 +266,7 @@ class CourseDetailsView extends StatelessWidget {
                                                         1
                                                     ? Colors.red
                                                     : Colors.teal,
-                                            offset: Offset(0, -5))
+                                            offset: const Offset(0, -5))
                                       ],
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -430,7 +429,7 @@ class CourseDetailsView extends StatelessWidget {
                                               ),
                                             ],
                                           )
-                                        : SizedBox(),
+                                        : const SizedBox(),
                                 SizedBox(
                                   height: 10.h,
                                 ),
@@ -558,7 +557,7 @@ class CourseDetailsView extends StatelessWidget {
                                                                 size: 25.h,
                                                               ),
                                                             )
-                                                          : SizedBox(),
+                                                          : const SizedBox(),
                                                     ],
                                                   ),
                                                   SizedBox(
@@ -570,7 +569,7 @@ class CourseDetailsView extends StatelessWidget {
                                           ),
                                         ],
                                       )
-                                    : SizedBox(),
+                                    : const SizedBox(),
                                 SizedBox(
                                   height: 10.h,
                                 ),
@@ -699,7 +698,7 @@ class CourseDetailsView extends StatelessWidget {
                                                                 size: 25.h,
                                                               ),
                                                             )
-                                                          : SizedBox(),
+                                                          : const SizedBox(),
                                                     ],
                                                   ),
                                                   SizedBox(
@@ -711,7 +710,7 @@ class CourseDetailsView extends StatelessWidget {
                                           ),
                                         ],
                                       )
-                                    : SizedBox(),
+                                    : const SizedBox(),
                               ],
                             ),
                           ),
@@ -755,7 +754,7 @@ class CourseDetailsView extends StatelessWidget {
                             ? Center(
                                 child: Padding(
                                 padding: EdgeInsets.only(top: 40.h),
-                                child: Text('No Review Found'),
+                                child: const Text('No Review Found'),
                               ))
                             : ListView.builder(
                                 shrinkWrap: true,
@@ -773,7 +772,7 @@ class CourseDetailsView extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        CircleAvatar(),
+                                        const CircleAvatar(),
                                         SizedBox(
                                           width: 10.w,
                                         ),
@@ -849,7 +848,7 @@ class CourseDetailsView extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () => controller.isCourseDetailsLoading.value
-            ? BottomNavigationBarShimmer()
+            ? const BottomNavigationBarShimmer()
             : Container(
                 height: 60,
                 width: double.maxFinite,
@@ -860,6 +859,7 @@ class CourseDetailsView extends StatelessWidget {
                         loading: false,
                         onPress: () {
                           cartController.addToCart(id);
+                          print("ID is  $id");
                         },
                         text: 'Add to cart',
                       ),

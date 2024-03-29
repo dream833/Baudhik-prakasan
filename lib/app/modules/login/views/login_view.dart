@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio_form_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -10,6 +14,7 @@ import 'package:ssgc/app/widgets/rounded_button.dart';
 import 'package:ssgc/app/widgets/text.dart';
 import 'package:http/http.dart' as http;
 import '../../../data/app_image.dart';
+
 import '../../../widgets/app_color.dart';
 import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import '../controllers/login_controller.dart';
@@ -333,36 +338,45 @@ class LoginView extends GetView<LoginController> {
         ));
   }
 
-  changeRoute(context) async {
+  changeRoute({required String phone}) async {
     await Future.delayed(const Duration(seconds: 1), () {
       Get.to(
-        () => const OTPViewPage(),
+        () => OTPViewPage(
+          phone: phone,
+        ),
       );
     });
   }
 
-  void sendOTP(context) async {
+  Future<void> sendOTP(context) async {
     final loginphoneController = loginController.otpPhoneController.text;
-    const apiKey = '365C5D8E1A6CF6';
     final contacts = loginphoneController;
-    const senderId = 'SHURAJ';
-    const type = 'text';
-    final smsText = Uri.encodeComponent(
-        '{#var#} is your OTP for login bharat consultancy web portal. suraj shukla');
-    const peId = '1701164301680517262';
-    const templateId = '1707170738766952953';
-    const campaign = ' 7668';
-    const routeid = '100449';
-    final apiURL = Uri.parse(
-      'https://sms.alphaqtmtechnology.com/app/smsapi/index.php?key=$apiKey&campaign=$campaign&routeid=$routeid&type=$type&contacts=$contacts&senderid=$senderId&msg=$smsText&template_id=$templateId&pe_id=$peId',
+    final data = json.encode({
+      "phone": loginphoneController,
+    });
+    final response = await Dio().post(
+      'https://api.bhattacharjeesolution.in/book/api/user-otp-login.php',
+      data: data,
+      options: Options(
+          headers: {
+            "Accept": "application/json",
+          },
+          followRedirects: false,
+          validateStatus: (status) {
+            return status! < 500;
+          }),
     );
-    final response = await http.get(apiURL);
+
+    //final response = await http.post(apiURL{});
     if (response.statusCode == 200) {
-      changeRoute(context);
-      print('Response: ${response.body} $loginphoneController');
+      changeRoute(phone: loginphoneController);
+      print('Response: ${response.data} $loginphoneController');
     } else {
+      Fluttertoast.showToast(
+          msg:
+              'Login failed. Status code: ${response.statusCode} ${response.data}');
       print(
-          'Login failed. Status code: ${response.statusCode} ${response.reasonPhrase}');
+          'Login failed. Status code: ${response.statusCode} ${response.data}');
       print(loginphoneController);
     }
   }
