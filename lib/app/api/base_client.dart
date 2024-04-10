@@ -20,20 +20,32 @@ class ApiBaseClient {
   Future<dynamic> getCategories() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=book');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=book');
     var headers = {
       'token': '$token',
     };
     final response = await client.get(uri, headers: headers);
     return response;
   }
-  
-  Future<dynamic> loginUser(dynamic data) async {
+
+  Future<dynamic> loginUserwithOTP(dynamic data) async {
     final uri = Uri.parse('${UtilGlobals.baseUrl}/user-login.php');
     var headers = {
       'Content-Type': 'application/json',
     };
-    final response = await client.post(uri, body: json.encode(data), headers: headers);
+    final response =
+        await client.post(uri, body: json.encode(data), headers: headers);
+    return response;
+  }
+
+  Future<dynamic> loginUserwithPassword(dynamic data) async {
+    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-pass-login.php');
+    var headers = {
+      'Content-Type': 'application/json',
+    };
+    final response =
+        await client.post(uri, body: json.encode(data), headers: headers);
     return response;
   }
 
@@ -66,7 +78,8 @@ class ApiBaseClient {
   Future<dynamic> getHomeBook(String language) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/show-book-home.php?lang=$language');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/show-book-home.php?lang=$language');
     var headers = {
       'token': '$token',
     };
@@ -74,10 +87,12 @@ class ApiBaseClient {
     return response;
   }
 
-  Future<dynamic> getUserAllBookByCategory(int id, String language, String type) async {
+  Future<dynamic> getUserAllBookByCategory(
+      int id, String language, String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-book.php?category=$id&lang=$language&type=$type');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/user-show-book.php?category=$id&lang=$language&type=$type');
     var headers = {
       'token': '$token',
     };
@@ -85,10 +100,12 @@ class ApiBaseClient {
     return response;
   }
 
-  Future<dynamic> fetchCategoryWiseBook(int id, String language, String type) async {
+  Future<dynamic> fetchCategoryWiseBook(
+      int id, String language, String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-book.php?category=$id&lang=$language&type=$type');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/user-show-book.php?category=$id&lang=$language&type=$type');
     var headers = {
       'token': '$token',
     };
@@ -96,10 +113,12 @@ class ApiBaseClient {
     return response;
   }
 
-  Future<dynamic> getNewRelease(String language, String filter, String type) async {
+  Future<dynamic> getNewRelease(
+      String language, String filter, String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/show-new-book.php?lang=$language&filter=$filter&type=$type');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/show-new-book.php?lang=$language&filter=$filter&type=$type');
     var headers = {
       'token': '$token',
     };
@@ -107,10 +126,12 @@ class ApiBaseClient {
     return response;
   }
 
-  Future<dynamic> getNewReleaseByType(String language, String filter, String type) async {
+  Future<dynamic> getNewReleaseByType(
+      String language, String filter, String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/show-new-courses.php?lang=$language&filter=$filter&type=$type');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/show-new-courses.php?lang=$language&filter=$filter&type=$type');
     var headers = {
       'token': '$token',
     };
@@ -128,8 +149,6 @@ class ApiBaseClient {
     final response = await client.get(uri, headers: headers);
     return response;
   }
-
-
 
   /// Wish List API
   Future<dynamic> getWishList() async {
@@ -173,7 +192,6 @@ class ApiBaseClient {
 
   /// Wish list end here
 
-
   /// Address API from here
 
   Future<dynamic> addAddress(dynamic data) async {
@@ -211,7 +229,8 @@ class ApiBaseClient {
       "Content-Type": "application/x-www-form-urlencoded",
       'token': '$token',
     };
-    final response = await client.put(uri, body: json.encode(data), headers: headers);
+    final response =
+        await client.put(uri, body: json.encode(data), headers: headers);
     return response;
   }
 
@@ -228,7 +247,6 @@ class ApiBaseClient {
   }
 
   /// Address API end here
-
 
   /// Cart API start from here
 
@@ -267,7 +285,8 @@ class ApiBaseClient {
       'Content-Type': 'application/json',
       'token': token!,
     };
-    final response = await client.put(uri, body: json.encode(data), headers: headers);
+    final response =
+        await client.put(uri, body: json.encode(data), headers: headers);
     return response;
   }
 
@@ -284,7 +303,6 @@ class ApiBaseClient {
   }
 
   /// Cart API end here
-
 
   /// Order API Start here
 
@@ -308,9 +326,9 @@ class ApiBaseClient {
       'token': '$token',
     };
     final response = await client.post(
-        uri,
-        body: json.encode(data),
-        headers: headers,
+      uri,
+      body: json.encode(data),
+      headers: headers,
     );
     return response;
   }
@@ -334,7 +352,8 @@ class ApiBaseClient {
   Future<dynamic> getCategoriesByType(String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=$type');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=$type');
     var headers = {
       'token': '$token',
     };
@@ -345,7 +364,8 @@ class ApiBaseClient {
   Future<dynamic> getNewReleaseNews(String language, String filter) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/show-new-news.php?lang=$language&filter=$filter');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/show-new-news.php?lang=$language&filter=$filter');
     var headers = {
       'token': '$token',
     };
@@ -354,7 +374,8 @@ class ApiBaseClient {
   }
 
   Future<dynamic> getNewsDetails(int id) async {
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-news-detail.php?id$id');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/user-show-news-detail.php?id$id');
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     print('Token~~~~~~~$token');
@@ -369,7 +390,8 @@ class ApiBaseClient {
   Future<dynamic> getCategoryWiseNews(int id, String language) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-news.php?category=$id&lang=$language');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/user-show-news.php?category=$id&lang=$language');
     var headers = {
       'token': '$token',
     };
@@ -380,7 +402,8 @@ class ApiBaseClient {
   Future<dynamic> getTypeWiseCategory(String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=$type');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/user-show-category.php?type=$type');
     var headers = {
       'token': '$token',
     };
@@ -406,10 +429,12 @@ class ApiBaseClient {
 
   /// Course api from here
 
-  Future<dynamic> getCategoryWiseCourse(int id, String language, String type) async {
+  Future<dynamic> getCategoryWiseCourse(
+      int id, String language, String type) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-courses.php?lang=$language&category=$id&type=$type');
+    final uri = Uri.parse(
+        '${UtilGlobals.baseUrl}/user-show-courses.php?lang=$language&category=$id&type=$type');
     var headers = {
       'token': '$token',
     };
@@ -420,14 +445,14 @@ class ApiBaseClient {
   Future<dynamic> getCourseDetails(int id) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final uri = Uri.parse('${UtilGlobals.baseUrl}/user-show-courses-detail.php?id=$id');
+    final uri =
+        Uri.parse('${UtilGlobals.baseUrl}/user-show-courses-detail.php?id=$id');
     var headers = {
       'token': '$token',
     };
     final response = await client.get(uri, headers: headers);
     return response;
   }
-
 
   /// Customer Support API start here
 
@@ -449,7 +474,6 @@ class ApiBaseClient {
 
   /// Customer Support API end here
 
-
   /// Quiz API integration
 
   Future<dynamic> getQuiz(int id) async {
@@ -462,8 +486,6 @@ class ApiBaseClient {
     final response = await client.get(uri, headers: headers);
     return response;
   }
-
-
 
   /// Quiz API end here
 

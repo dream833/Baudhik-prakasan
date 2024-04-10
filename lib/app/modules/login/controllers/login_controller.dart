@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/profile/controllers/profile_controller.dart';
 import 'package:ssgc/app/widgets/custom_message.dart';
@@ -9,10 +11,11 @@ import '../../../api/base_client.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../widgets/custom_message.dart';
 import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../otp/otp_view_page.dart';
 
 class LoginController extends GetxController {
   //TODO: Implement LoginController
@@ -51,29 +54,78 @@ class LoginController extends GetxController {
 
   void increment() => count.value++;
 
-  setIsOtpOrPassword(){
+  setIsOtpOrPassword() {
     isOtpLogin.value = !isOtpLogin.value;
     print(isOtpLogin.value);
   }
 
+  changeRoute({required String phone}) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      Get.to(
+        () => OTPViewPage(
+          phone: phone,
+        ),
+      );
+    });
+  }
+
+  Future<void> sendOTP(context) async {
+    isLoading.value = true;
+    final loginphoneController = otpPhoneController.text;
+    final contacts = loginphoneController;
+    final data = json.encode({
+      "phone": loginphoneController,
+    });
+    final response = await Dio().post(
+      'https://api.bhattacharjeesolution.in/book/api/user-otp-login.php',
+      data: data,
+      options: Options(
+          headers: {
+            "Accept": "application/json",
+          },
+          followRedirects: false,
+          validateStatus: (status) {
+            return status! < 500;
+          }),
+    );
+
+    //final response = await http.post(apiURL{});
+    if (response.statusCode == 200) {
+      changeRoute(phone: loginphoneController);
+      print('Response: ${response.data} $loginphoneController');
+      isLoading.value = true;
+    } else {
+      Fluttertoast.showToast(
+          msg:
+              'Login failed. Status code: ${response.statusCode} ${response.data}');
+      print(
+          'Login failed. Status code: ${response.statusCode} ${response.data}');
+      print(loginphoneController);
+      isLoading.value = true;
+    }
+  }
+
+  // loginUserwithOTP() async{
+  //   isLoading.value = true;
+  //   var data
+  // }
+
   loginUser() async {
     isLoading.value = true;
-    var data  = {
+    var data = {
       'phone': phoneController.text.toString().trim(),
       'password': passwordController.text.toString().trim(),
     };
-    final response = await ApiBaseClient().loginUser(data);
+    final response = await ApiBaseClient().loginUserwithPassword(data);
     Map<String, dynamic> responseData = json.decode(response.body);
-    print('/////////////////////////////////////////');
     print(responseData);
-    print('/////////////////////////////////////////');
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       print(("Login Success"));
       String token = responseData['token'];
       String name = responseData['user']['name'];
       String phone = responseData['user']['phone'];
       int id = responseData['user']['id'];
-      storeUserInfo(token, name, phone, id).then((value){
+      storeUserInfo(token, name, phone, id).then((value) {
         print("Store on local DB successfully");
         profileController.getUserData();
       });
@@ -82,21 +134,24 @@ class LoginController extends GetxController {
       isLoading.value = false;
       isOtpLogin.value = true;
       update();
-    }
-    else if (response.statusCode == 401){
+    } else if (response.statusCode == 401) {
       print('${responseData['message']}');
       CustomMessage.errorToast("${responseData['message']}");
       isLoading.value = false;
       update();
-    }
-    else {
+    } else {
       CustomMessage.errorToast("Status Code ${response.statusCode}");
       isLoading.value = false;
       update();
     }
   }
 
-  Future<void> storeUserInfo(String token, String name, String phone, int id,) async {
+  Future<void> storeUserInfo(
+    String token,
+    String name,
+    String phone,
+    int id,
+  ) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token);
     await prefs.setString('name', name);
@@ -149,7 +204,7 @@ class LoginController extends GetxController {
 
   Future googleLogin() async {
     final googleUser = await googleSignIn.signIn();
-    if(googleUser == null) return;
+    if (googleUser == null) return;
     _user = googleUser;
 
     final googleAuth = await googleUser.authentication;
@@ -162,7 +217,5 @@ class LoginController extends GetxController {
     await FirebaseAuth.instance.signInWithCredential(credential);
 
     update();
-
   }
-
 }

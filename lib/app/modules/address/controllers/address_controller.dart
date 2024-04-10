@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,8 +10,6 @@ import '../../../widgets/custom_message.dart';
 import '../views/show_address_view.dart';
 
 class AddressController extends GetxController {
-  //TODO: Implement AddressController
-
   final addressList = [].obs;
   final isAddressLoading = false.obs;
 
@@ -48,11 +45,15 @@ class AddressController extends GetxController {
 
   final TextEditingController updateStateController = TextEditingController();
   final TextEditingController updateCityController = TextEditingController();
-  final TextEditingController updatePostalCodeController = TextEditingController();
+  final TextEditingController updatePostalCodeController =
+      TextEditingController();
   final TextEditingController updateAreaController = TextEditingController();
-  final TextEditingController updateLandMarkController = TextEditingController();
-  final TextEditingController updateAddressLine1Controller = TextEditingController();
-  final TextEditingController updateAddressLine2Controller = TextEditingController();
+  final TextEditingController updateLandMarkController =
+      TextEditingController();
+  final TextEditingController updateAddressLine1Controller =
+      TextEditingController();
+  final TextEditingController updateAddressLine2Controller =
+      TextEditingController();
 
   var isSwitched = true.obs;
   RxString switchValue = "1".obs;
@@ -80,13 +81,9 @@ class AddressController extends GetxController {
     super.onClose();
   }
 
-  checkIsEdit(){
+  checkIsEdit() {}
 
-  }
-
-  setAddressInfo(){
-
-  }
+  setAddressInfo() {}
 
   void increment() => count.value++;
 
@@ -142,7 +139,7 @@ class AddressController extends GetxController {
       map['address_line2'] = addressLine2Controller.text.toString();
       map['is_delivery'] = "1";
       final response = await ApiBaseClient().addAddress(map);
-      if(response.statusCode == 201) {
+      if (response.statusCode == 201) {
         CustomMessage.successToast("Address Added successfully");
         // cityController.text = "";
         // stateController.text = "";
@@ -153,32 +150,29 @@ class AddressController extends GetxController {
         // addressLine2Controller.text = "";
         isLoading.value = false;
         update();
-      }
-      else if (response.statusCode == 401){
+      } else if (response.statusCode == 401) {
         // CustomMessage.errorToast('${responseData['message']}');
         // print('${responseData['message']}');
         print("Status Code 401");
         isLoading.value = false;
         update();
-      }
-      else {
+      } else {
         print("Status code ${response.statusCode}");
         CustomMessage.errorToast("Can not add to cart");
         isLoading.value = false;
         update();
       }
-    }catch(e){
+    } catch (e) {
       print("Error is ---------------------> ${e.toString()}");
       isLoading.value = false;
       update();
     }
   }
 
-
   updateAddress(int id, int userId) async {
     try {
       isUpdateAddressLoading.value = true;
-      var data  = {
+      var data = {
         'id': id,
         'user_id': userId,
         'city': updateCityController.text,
@@ -192,19 +186,17 @@ class AddressController extends GetxController {
       };
       print("my data is $data");
       final response = await ApiBaseClient().updateAddress(data);
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         CustomMessage.successToast("Address Updated");
         // Get.offAll(ShowAddressView());
         isUpdateAddressLoading.value = false;
-      }
-      else if (response.statusCode == 401){
+      } else if (response.statusCode == 401) {
         isUpdateAddressLoading.value = false;
-      }
-      else {
+      } else {
         isUpdateAddressLoading.value = false;
         print("Status code ${response.statusCode}");
       }
-    }catch (e){
+    } catch (e) {
       print("Error : ${e.toString()}");
       isUpdateAddressLoading.value = false;
     }
@@ -219,12 +211,11 @@ class AddressController extends GetxController {
   deleteAddress(int index, int id) async {
     final response = await ApiBaseClient().deleteAddress(id);
     Map<String, dynamic> responseData = json.decode(response.body);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       CustomMessage.successToast("Delete address");
       addressList.removeAt(index);
       update();
-    }
-    else if (response.statusCode == 401){
+    } else if (response.statusCode == 401) {
       print('${responseData['message']}');
     }
   }
@@ -232,10 +223,8 @@ class AddressController extends GetxController {
   Future<void> navigateToSavedAddressPage(BuildContext context) async {
     final addressController = Get.find<AddressController>();
     final route = MaterialPageRoute(
-      builder: (context) => ShowAddressView(),
+      builder: (context) => const ShowAddressView(),
     );
     await Navigator.push(context, route);
   }
-
 }
-

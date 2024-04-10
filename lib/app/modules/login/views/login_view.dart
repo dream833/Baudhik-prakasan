@@ -223,7 +223,7 @@ class LoginView extends GetView<LoginController> {
                                 .otpPhoneController.text.isNotEmpty) {
                               _formKey2.currentState!.save();
                               print(loginController.otpPhoneController.text);
-                              sendOTP(context);
+                              loginController.sendOTP(context);
                             } else {
                               Fluttertoast.showToast(
                                   msg: "Please Enter Phone Number");
@@ -237,7 +237,7 @@ class LoginView extends GetView<LoginController> {
                         } else {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
-                            // Get.snackbar("Warning", "Password Login");
+                            Get.snackbar("Warning", "Password Login");
                             loginController.loginUser();
                           }
                           // else {
@@ -336,49 +336,6 @@ class LoginView extends GetView<LoginController> {
             ),
           ),
         ));
-  }
-
-  changeRoute({required String phone}) async {
-    await Future.delayed(const Duration(seconds: 1), () {
-      Get.to(
-        () => OTPViewPage(
-          phone: phone,
-        ),
-      );
-    });
-  }
-
-  Future<void> sendOTP(context) async {
-    final loginphoneController = loginController.otpPhoneController.text;
-    final contacts = loginphoneController;
-    final data = json.encode({
-      "phone": loginphoneController,
-    });
-    final response = await Dio().post(
-      'https://api.bhattacharjeesolution.in/book/api/user-otp-login.php',
-      data: data,
-      options: Options(
-          headers: {
-            "Accept": "application/json",
-          },
-          followRedirects: false,
-          validateStatus: (status) {
-            return status! < 500;
-          }),
-    );
-
-    //final response = await http.post(apiURL{});
-    if (response.statusCode == 200) {
-      changeRoute(phone: loginphoneController);
-      print('Response: ${response.data} $loginphoneController');
-    } else {
-      Fluttertoast.showToast(
-          msg:
-              'Login failed. Status code: ${response.statusCode} ${response.data}');
-      print(
-          'Login failed. Status code: ${response.statusCode} ${response.data}');
-      print(loginphoneController);
-    }
   }
 }
 
