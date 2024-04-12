@@ -1,22 +1,14 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
-import 'package:dio/dio.dart' as dio_form_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ssgc/app/modules/login/otp/otp_view_page.dart';
 import 'package:ssgc/app/modules/registration/views/registration_view.dart';
 import 'package:ssgc/app/widgets/custom_text_span.dart';
 import 'package:ssgc/app/widgets/rounded_button.dart';
 import 'package:ssgc/app/widgets/text.dart';
-import 'package:http/http.dart' as http;
 import '../../../data/app_image.dart';
 
 import '../../../widgets/app_color.dart';
-import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 import '../controllers/login_controller.dart';
 
 // ignore: must_be_immutable
@@ -84,7 +76,7 @@ class LoginView extends GetView<LoginController> {
                                 keyboardType: TextInputType.phone,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.all(16),
-                                  hintText: 'Phone ',
+                                  hintText: 'Phone',
                                   hintStyle: const TextStyle(fontSize: 13),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
@@ -222,7 +214,8 @@ class LoginView extends GetView<LoginController> {
                             if (loginController
                                 .otpPhoneController.text.isNotEmpty) {
                               _formKey2.currentState!.save();
-                              print(loginController.otpPhoneController.text);
+                              debugPrint(
+                                  loginController.otpPhoneController.text);
                               loginController.sendOTP(context);
                             } else {
                               Fluttertoast.showToast(
@@ -231,9 +224,9 @@ class LoginView extends GetView<LoginController> {
                             // loginController.loginUser();
                           }
                           // else {
-                          //   print("Form not validate");
+                          //   debugPrint("Form not validate");
                           // }
-                          print("Otp Login called");
+                          debugPrint("Otp Login called");
                         } else {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
@@ -241,9 +234,9 @@ class LoginView extends GetView<LoginController> {
                             loginController.loginUser();
                           }
                           // else {
-                          //   print("Form not validate");
+                          //   debugPrint("Form not validate");
                           // }
-                          print("Password Login called");
+                          debugPrint("Password Login called");
                         }
                       },
                     ),

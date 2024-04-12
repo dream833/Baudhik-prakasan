@@ -74,7 +74,7 @@ class LoginController extends GetxController {
     final loginphoneController = otpPhoneController.text;
     final contacts = loginphoneController;
     final data = json.encode({
-      "phone": loginphoneController,
+      "phone": "+91$loginphoneController",
     });
     final response = await Dio().post(
       'https://api.bhattacharjeesolution.in/book/api/user-otp-login.php',
@@ -93,7 +93,7 @@ class LoginController extends GetxController {
     if (response.statusCode == 200) {
       changeRoute(phone: loginphoneController);
       print('Response: ${response.data} $loginphoneController');
-      isLoading.value = true;
+      isLoading.value = false;
     } else {
       Fluttertoast.showToast(
           msg:
@@ -101,7 +101,7 @@ class LoginController extends GetxController {
       print(
           'Login failed. Status code: ${response.statusCode} ${response.data}');
       print(loginphoneController);
-      isLoading.value = true;
+      isLoading.value = false;
     }
   }
 
@@ -109,6 +109,40 @@ class LoginController extends GetxController {
   //   isLoading.value = true;
   //   var data
   // }
+  Future<void> verify(final phone, String otp) async {
+    print("+91$phone + $otp");
+    final data = {
+      "phone": "+91$phone",
+      "otp": otp,
+    };
+    final response = await ApiBaseClient().loginUserwithOTP(data);
+    Map<String, dynamic> responseData = json.decode(response.body);
+    print(responseData);
+    if (response.statusCode == 200) {
+      debugPrint("verify successful");
+      print(otp);
+      String token = responseData['token'];
+      String name = responseData['user']['name'];
+      String phone = responseData['user']['phone'];
+      int id = responseData['user']['id'];
+      storeUserInfo(token, name, phone, id).then((value) {
+        print("Store on local DB successfully");
+        profileController.getUserData();
+      });
+      CustomMessage.successToast("Login Successful");
+      Get.offAll(BottomNavigationBarView());
+      isLoading.value = false;
+      isOtpLogin.value = true;
+      update();
+    } else {
+      Fluttertoast.showToast(
+        msg:
+            'Login failed. Status code: ${response.statusCode} ${response.data}',
+      );
+      debugPrint(response.statusCode!.toString() +
+          json.encode(response.data.toString()));
+    }
+  }
 
   loginUser() async {
     isLoading.value = true;

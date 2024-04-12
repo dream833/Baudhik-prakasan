@@ -15,7 +15,6 @@ import 'package:ssgc/app/widgets/custom_message.dart';
 import 'package:telephony/telephony.dart';
 import 'package:timer_count_down/timer_controller.dart';
 import 'package:timer_count_down/timer_count_down.dart';
-
 import '../../../api/base_client.dart';
 import '../../bottom_navigation_bar/views/bottom_navigation_bar_view.dart';
 
@@ -181,7 +180,7 @@ class _OTPViewPageState extends State<OTPViewPage> {
 
                   debugPrint('onCompleted: $pin');
                   try {
-                    verify();
+                    loginController.verify(widget.phone, otp);
                     //loginController.loginUser();
                     //debugPrint('verification successful');
                   } catch (ex) {
@@ -231,51 +230,5 @@ class _OTPViewPageState extends State<OTPViewPage> {
     await prefs.setString('name', name);
     await prefs.setString('phone', phone);
     await prefs.setInt('id', id);
-  }
-
-  Future<void> verify() async {
-    final data = {
-      "phone": widget.phone,
-      "otp": otp,
-    };
-    // final response = await Dio().post(
-    //   "https://api.bhattacharjeesolution.in/book/api/user-login.php",
-    //   data: data,
-    //   options: Options(
-    //       headers: {
-    //         "Accept": "application/json",
-    //       },
-    //       followRedirects: false,
-    //       validateStatus: (status) {
-    //         return status! < 500;
-    //       }),
-    // );
-    final response = await ApiBaseClient().loginUserwithOTP(data);
-    Map<String, dynamic> responseData = json.decode(response.body);
-    print(responseData);
-    if (response.statusCode == 200) {
-      debugPrint("verify successfull");
-      print(otp);
-      String token = responseData['token'];
-      String name = responseData['user']['name'];
-      String phone = responseData['user']['phone'];
-      int id = responseData['user']['id'];
-      storeUserInfo(token, name, phone, id).then((value) {
-        print("Store on local DB successfully");
-        profileController.getUserData();
-      });
-      CustomMessage.successToast("Login Successful");
-      Get.offAll(BottomNavigationBarView());
-      isLoading = false;
-      isOtpLogin.value = true;
-      //update();
-    } else {
-      Fluttertoast.showToast(
-        msg:
-            'Login failed. Status code: ${response.statusCode} ${response.data}',
-      );
-      debugPrint(response.statusCode!.toString() +
-          json.encode(response.data.toString()));
-    }
   }
 }
