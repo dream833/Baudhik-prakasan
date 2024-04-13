@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/profile/controllers/profile_controller.dart';
+import 'package:ssgc/app/modules/registration/views/registration_view.dart';
 import 'package:ssgc/app/widgets/custom_message.dart';
 
 import '../../../api/base_client.dart';
@@ -135,12 +136,17 @@ class LoginController extends GetxController {
       isOtpLogin.value = true;
       update();
     } else {
-      Fluttertoast.showToast(
-        msg:
-            'Login failed. Status code: ${response.statusCode} ${response.data}',
-      );
-      debugPrint(response.statusCode!.toString() +
-          json.encode(response.data.toString()));
+      if (responseData['message'] == 'User not found') {
+        CustomMessage.errorToast("User not found please register");
+        Get.to(() => const RegistrationView());
+      } else {
+        Fluttertoast.showToast(
+          msg:
+              'Login failed. Status code: ${response.statusCode} ${response.data}',
+        );
+        debugPrint(response.statusCode!.toString() +
+            json.encode(response.data.toString()));
+      }
     }
   }
 
