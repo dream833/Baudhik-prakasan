@@ -25,7 +25,9 @@ class RegistrationView extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0,
-        iconTheme: IconThemeData(color: AppColor.black,),
+        iconTheme: IconThemeData(
+          color: AppColor.black,
+        ),
         backgroundColor: AppColor.white50,
       ),
       body: SingleChildScrollView(
@@ -33,33 +35,36 @@ class RegistrationView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-            Obx(()=>
-              Center(
+            Obx(
+              () => Center(
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
                     CircleAvatar(
                       radius: 60,
-                      backgroundImage: controller.imagePath.value.isNotEmpty ?
-                      FileImage(File(controller.imagePath.value.toString())) : null ,
+                      backgroundImage: controller.imagePath.value.isNotEmpty
+                          ? FileImage(
+                              File(controller.imagePath.value.toString()))
+                          : null,
                     ),
                     Positioned(
                       right: 0,
                       bottom: 0,
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           controller.getImage();
                         },
                         child: Container(
                           height: 40,
                           width: 40,
-                          padding: EdgeInsets.all(10.h,),
+                          padding: EdgeInsets.all(
+                            10.h,
+                          ),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.teal.shade200,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(
                               Icons.camera_alt,
                               size: 20,
@@ -78,9 +83,9 @@ class RegistrationView extends StatelessWidget {
               nextFocus: controller.phoneFocusNode,
               label: 'Name',
             ),
-
-            SizedBox(height: 10.h,),
-
+            SizedBox(
+              height: 10.h,
+            ),
             CustomTextFormField(
               inputType: TextInputType.phone,
               controller: controller.phoneController,
@@ -88,42 +93,45 @@ class RegistrationView extends StatelessWidget {
               nextFocus: controller.passwordFocusNode,
               label: 'Phone',
             ),
-
-            SizedBox(height: 10.h,),
-
-            Obx(()=>
-              CustomTextFormField(
+            SizedBox(
+              height: 10.h,
+            ),
+            Obx(
+              () => CustomTextFormField(
                 isObscure: controller.isPasswordVisible.value,
                 controller: controller.passwordController,
                 currentFocus: controller.passwordFocusNode,
                 // nextFocus: controller.phoneFocusNode,
                 label: 'Password',
-                suffixIcon: controller.isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
-                suffixOnPress: (){
-                  controller.isPasswordVisible.value =! controller.isPasswordVisible.value;
+                suffixIcon: controller.isPasswordVisible.value
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+                suffixOnPress: () {
+                  controller.isPasswordVisible.value =
+                      !controller.isPasswordVisible.value;
                 },
               ),
             ),
-
-            SizedBox(height: 10.h,),
-
-            Obx(()=>
-              Padding(
+            SizedBox(
+              height: 10.h,
+            ),
+            Obx(
+              () => Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: RoundedButton(
                   text: 'Sign Up',
                   height: 55,
                   backgroundColor: AppColor.mainColor,
                   isLoading: controller.isLoading.value,
-                  onPress: (){
+                  onPress: () {
                     controller.userRegistration();
                   },
                 ),
               ),
             ),
-
-            SizedBox(height: 10.h,),
-
+            SizedBox(
+              height: 10.h,
+            ),
           ],
         ),
       ),

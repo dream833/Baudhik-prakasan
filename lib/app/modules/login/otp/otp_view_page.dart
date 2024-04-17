@@ -84,7 +84,7 @@ class _OTPViewPageState extends State<OTPViewPage> {
 
   changeRoute() async {
     await Future.delayed(const Duration(seconds: 1), () {
-      Get.offAll(BottomNavigationBarView());
+      Get.offAll(() => BottomNavigationBarView());
     });
   }
 

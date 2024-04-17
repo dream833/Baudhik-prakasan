@@ -10,8 +10,7 @@ import '../../../utils/globals.dart';
 import '../../../widgets/custom_message.dart';
 import '../../../widgets/custom_message.dart';
 
-class RegistrationController extends GetxController{
-
+class RegistrationController extends GetxController {
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
@@ -40,21 +39,21 @@ class RegistrationController extends GetxController{
   getImage() async {
     final ImagePicker _picker = ImagePicker();
     final image = await _picker.pickImage(source: ImageSource.gallery);
-    if(image != null) {
+    if (image != null) {
       imagePath.value = image.path.toString();
     }
   }
 
   String generateFileNameWithDateTime() {
     final now = DateTime.now();
-    final formattedDate = "${now.year}-${now.month}-${now.day}_${now.hour}-${now.minute}-${now.second}";
+    final formattedDate =
+        "${now.year}-${now.month}-${now.day}_${now.hour}-${now.minute}-${now.second}";
     return "image_$formattedDate.jpg";
   }
 
   userRegistration() async {
     isLoading.value = true;
     try {
-
       final fileName = generateFileNameWithDateTime();
       // var map = <dynamic, dynamic>{};
 
@@ -65,7 +64,7 @@ class RegistrationController extends GetxController{
       final uri = Uri.parse('${UtilGlobals.baseUrl}/user-register.php');
 
       final request = http.MultipartRequest('POST', uri)
-        ..fields['phone'] = phoneController.text
+        ..fields['phone'] = "+91${phoneController.text}"
         ..fields['name'] = nameController.text
         ..fields['password'] = passwordController.text
         ..files.add(http.MultipartFile(
@@ -85,7 +84,7 @@ class RegistrationController extends GetxController{
         nameController.text = '';
         phoneController.text = '';
         passwordController.text = '';
-        Get.offAll(()=>LoginView());
+        Get.offAll(() => LoginView());
         isLoading.value = false;
         update();
       } else {
@@ -96,9 +95,7 @@ class RegistrationController extends GetxController{
         isLoading.value = false;
         update();
       }
-
-
-    }catch(e){
+    } catch (e) {
       isLoading.value = false;
       update();
     }
